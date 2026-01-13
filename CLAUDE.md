@@ -112,6 +112,7 @@ cd dist && python -m http.server 8080
 - **Auto-fit grid**: Centers partial rows automatically
 - **Show More for Good Reads**: Handles large collections without overwhelming the page
 - **Separate source and output**: `books/` for source data, `dist/` for built output
+- **Cover image fallback**: SVG placeholder with book title shown if cover fails to load
 
 ## Things to Avoid
 

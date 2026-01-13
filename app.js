@@ -318,6 +318,18 @@
     // Populate modal content
     modalElements.coverImg.src = book.cover;
     modalElements.coverImg.alt = `Cover of ${book.title}`;
+    modalElements.coverImg.onerror = function () {
+      this.src =
+        "data:image/svg+xml," +
+        encodeURIComponent(`
+          <svg xmlns="http://www.w3.org/2000/svg" width="200" height="300" viewBox="0 0 200 300">
+            <rect fill="#8B5A2B" width="200" height="300"/>
+            <text x="100" y="150" text-anchor="middle" fill="#FDF5E6" font-family="Georgia" font-size="16">
+              ${book.title.substring(0, 20)}${book.title.length > 20 ? "..." : ""}
+            </text>
+          </svg>
+        `);
+    };
     modalElements.title.textContent = book.title;
     modalElements.author.textContent = `by ${book.author}`;
     modalElements.category.textContent = book.category || "N/A";

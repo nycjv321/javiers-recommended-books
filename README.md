@@ -10,7 +10,7 @@ A minimalist static website to showcase your book recommendations. No backend re
 - Click on any book to see details, notes, and external links
 - Dark mode toggle with localStorage persistence
 - Fully responsive (mobile, tablet, desktop)
-- Book covers from Open Library or local images
+- Book covers from Open Library or local images (with fallback placeholder)
 
 ## Getting Started
 
@@ -93,6 +93,8 @@ You can use Open Library for free cover images:
 ```
 https://covers.openlibrary.org/b/isbn/{ISBN}-L.jpg
 ```
+
+If a cover image fails to load, a placeholder with the book title is shown automatically.
 
 ## Project Structure
 
