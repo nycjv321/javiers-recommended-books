@@ -1,0 +1,11 @@
+{
+    "title": "The Hard Thing About Hard Things",
+    "author": "Ben Horowitz",
+    "category": "Business",
+    "publishDate": "2014-03-04",
+    "pages": 304,
+    "cover": "https://covers.openlibrary.org/b/isbn/9780062273208-L.jpg",
+    "notes": "Real talk about building and running a startup. No platitudes, just honest advice about the struggles every founder faces.",
+    "link": "https://a16z.com/books/the-hard-thing-about-hard-things/",
+    "clickBehavior": "overlay"
+}

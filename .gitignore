@@ -1,0 +1,10 @@
+# Build output
+dist/
+
+# OS files
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~

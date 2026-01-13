@@ -1,0 +1,11 @@
+{
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "category": "Fiction",
+    "publishDate": "1988-01-01",
+    "pages": 208,
+    "cover": "https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg",
+    "notes": "A fable about following your dreams. Simple yet profound message about personal legends and the journey of self-discovery.",
+    "link": "https://www.paulocoelhoblog.com/the-alchemist/",
+    "clickBehavior": "overlay"
+}

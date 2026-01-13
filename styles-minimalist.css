@@ -1,0 +1,637 @@
+/* ===== CSS Variables ===== */
+:root {
+    /* Soft lavender palette */
+    --bg-primary: #FAF5FF;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F3E8FF;
+
+    /* Neutral accent */
+    --accent: #292524;
+    --accent-hover: #1C1917;
+
+    /* Text colors */
+    --text-primary: #292524;
+    --text-secondary: #57534E;
+    --text-muted: #A8A29E;
+
+    /* Borders */
+    --border-light: #E7E5E4;
+    --border-medium: #D6D3D1;
+
+    /* Shadows - warmer tone */
+    --shadow-sm: 0 1px 3px rgba(41, 37, 36, 0.06);
+    --shadow-md: 0 4px 12px rgba(41, 37, 36, 0.08);
+    --shadow-lg: 0 12px 40px rgba(41, 37, 36, 0.15);
+    --shadow-xl: 0 25px 60px rgba(41, 37, 36, 0.25);
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-primary);
+    min-height: 100vh;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ===== Header ===== */
+.header {
+    position: relative;
+    text-align: center;
+    padding: 3rem 1rem 1.5rem;
+    background: transparent;
+    border-bottom: none;
+}
+
+.header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+/* ===== Bookshelf Container - Recessed Shadow Box Effect ===== */
+.bookshelf-container {
+    max-width: 1300px;
+    margin: 0 auto 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem 2.5rem;
+    background: rgba(0, 0, 0, 0.025);
+    border-radius: 20px;
+    box-shadow:
+        inset 0 2px 12px rgba(0, 0, 0, 0.06),
+        inset 0 1px 3px rgba(0, 0, 0, 0.08),
+        inset 0 -2px 0 rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* ===== Bookshelf - now a simple container ===== */
+.bookshelf {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ===== Shelf Sections ===== */
+.shelf-section {
+    margin-bottom: 3rem;
+}
+
+.shelf-section:last-child {
+    margin-bottom: 0;
+}
+
+.shelf-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+    letter-spacing: 0.01em;
+}
+
+.show-more-btn {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.75rem 2rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.show-more-btn:hover {
+    background: var(--bg-tertiary);
+    box-shadow: var(--shadow-sm);
+}
+
+.show-more-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ===== Shelf Row - converted to grid ===== */
+.shelf-row {
+    position: relative;
+    padding: 0;
+    min-height: auto;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Remove shelf decorations */
+.shelf-row::after,
+.shelf-row::before {
+    display: none;
+}
+
+/* ===== Books Container - 6 Column Grid ===== */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 160px);
+    justify-content: center;
+    gap: 2rem;
+    row-gap: 5rem;
+    padding: 0;
+    margin-bottom: 2rem;
+    min-height: auto;
+}
+
+.shelf-row:last-child .books-container {
+    margin-bottom: 0;
+}
+
+/* ===== Individual Book ===== */
+.book {
+    position: relative;
+    cursor: pointer;
+    transition: transform var(--transition-medium);
+    border-radius: 8px;
+    background: transparent;
+    padding: 0;
+}
+
+.book:hover {
+    transform: translateY(-12px) scale(1.05) rotate(-1deg);
+}
+
+.book:nth-child(even):hover {
+    transform: translateY(-12px) scale(1.05) rotate(1deg);
+}
+
+.book:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Remove spine effect */
+.book::before {
+    display: none;
+}
+
+.book-cover {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow var(--transition-medium);
+}
+
+.book:hover .book-cover {
+    box-shadow: var(--shadow-xl);
+}
+
+/* ===== Overlay & Modal ===== */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-medium), visibility var(--transition-medium);
+    backdrop-filter: blur(4px);
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(16px) scale(0.98);
+    transition: transform var(--transition-medium);
+}
+
+.overlay.active .modal {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--bg-tertiary);
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background var(--transition-fast), color var(--transition-fast);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--border-light);
+    color: var(--text-primary);
+}
+
+.modal-content {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.modal-cover {
+    flex-shrink: 0;
+}
+
+.modal-cover img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+.modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+    padding-right: 3rem;
+    letter-spacing: -0.01em;
+}
+
+.modal-author {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meta-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.meta-value {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.modal-notes {
+    flex-grow: 1;
+}
+
+.modal-notes h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.modal-notes p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+}
+
+.modal-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.modal-button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    background: transparent;
+}
+
+/* ===== Loading State ===== */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-left: 0.75rem;
+    border: 2px solid var(--border-medium);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+}
+
+.empty-state h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: var(--text-muted);
+}
+
+/* ===== Responsive Design ===== */
+
+/* Smaller gaps on large screens */
+@media (max-width: 1200px) {
+    .books-container {
+        grid-template-columns: repeat(auto-fit, 150px);
+        gap: 1.5rem;
+    }
+}
+
+/* Smaller gaps on medium-large screens */
+@media (max-width: 992px) {
+    .books-container {
+        grid-template-columns: repeat(auto-fit, 140px);
+        gap: 1.5rem;
+    }
+}
+
+/* 3 columns on tablets */
+@media (max-width: 768px) {
+    .bookshelf-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .books-container {
+        grid-template-columns: repeat(auto-fit, 120px);
+        gap: 1.25rem;
+    }
+
+
+    .modal-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .modal-cover {
+        display: flex;
+        justify-content: center;
+    }
+
+    .modal-cover img {
+        width: 160px;
+    }
+
+    .modal-title {
+        padding-right: 0;
+    }
+
+    .modal-meta {
+        justify-content: center;
+    }
+
+    .modal-button {
+        align-self: center;
+    }
+}
+
+/* 2 columns on mobile */
+@media (max-width: 480px) {
+    .header {
+        padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .bookshelf-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .books-container {
+        grid-template-columns: repeat(auto-fit, 130px);
+        gap: 1rem;
+    }
+
+
+    .modal {
+        border-radius: 12px;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.book:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.modal-close:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.modal-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-toggle-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    position: relative;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Sun icon (light mode) */
+.theme-toggle-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--bg-secondary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+}
+
+/* Moon crescent (dark mode) */
+[data-theme="dark"] .theme-toggle-icon::before {
+    transform: translate(-20%, -50%);
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== Dark Mode Support (class-based) ===== */
+[data-theme="dark"] {
+    --bg-primary: #1C1917;
+    --bg-secondary: #292524;
+    --bg-tertiary: #44403C;
+
+    --text-primary: #FAFAF9;
+    --text-secondary: #D6D3D1;
+    --text-muted: #A8A29E;
+
+    --border-light: #44403C;
+    --border-medium: #57534E;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Dark mode recessed effect */
+[data-theme="dark"] .bookshelf-container {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow:
+        inset 0 2px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 3px rgba(0, 0, 0, 0.4),
+        inset 0 -2px 0 rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
