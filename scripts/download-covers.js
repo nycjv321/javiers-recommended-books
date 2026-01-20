@@ -4,9 +4,9 @@
  * Download Book Covers for Offline Use
  *
  * Usage:
- *   node download-covers.js           # Interactive mode
- *   node download-covers.js --all     # Download all without prompting
- *   node download-covers.js --check   # Report only (no downloads)
+ *   node scripts/download-covers.js           # Interactive mode
+ *   node scripts/download-covers.js --all     # Download all without prompting
+ *   node scripts/download-covers.js --check   # Report only (no downloads)
  */
 
 const readline = require('readline');
@@ -15,7 +15,8 @@ const path = require('path');
 const https = require('https');
 const http = require('http');
 
-const BOOKS_DIR = path.join(__dirname, 'books');
+const ROOT_DIR = path.join(__dirname, '..');
+const BOOKS_DIR = path.join(ROOT_DIR, 'books');
 const COVERS_DIR = path.join(BOOKS_DIR, 'covers');
 const SHELF_FOLDERS = ['top-5-reads', 'good-reads', 'current-and-future-reads'];
 

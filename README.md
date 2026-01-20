@@ -1,6 +1,6 @@
-# My Reads
+# Javier's Recommended Books
 
-A minimalist static website to showcase your book recommendations. No backend required - just HTML, CSS, and JavaScript.
+A minimalist static website to showcase book recommendations. No backend required - just HTML, CSS, and JavaScript.
 
 ## Features
 
@@ -17,8 +17,8 @@ A minimalist static website to showcase your book recommendations. No backend re
 ### 1. Build and run locally
 
 ```bash
-# Build the site (with sample data for testing)
-node build-index.js --sample
+# Build the site
+node scripts/build-index.js
 
 # Serve the built site
 npx serve dist
@@ -32,7 +32,7 @@ Then open http://localhost:8080
 
 **Option A: Interactive CLI (recommended)**
 ```bash
-node add-book.js                 # Search Open Library or enter manually
+node scripts/add-book.js         # Search Open Library or enter manually
 ```
 
 **Option B: Manual JSON file**
@@ -67,11 +67,7 @@ Example book file (`books/good-reads/my-book.json`):
 After adding or removing books, rebuild:
 
 ```bash
-# Build with your real data
-node build-index.js
-
-# Or build with sample data for testing/demo
-node build-index.js --sample
+node scripts/build-index.js
 ```
 
 The build script:
@@ -104,9 +100,9 @@ https://covers.openlibrary.org/b/isbn/{ISBN}-L.jpg
 
 **Download covers for offline use:**
 ```bash
-node download-covers.js          # Interactive mode
-node download-covers.js --all    # Download all without prompting
-node download-covers.js --check  # Report only (no downloads)
+node scripts/download-covers.js          # Interactive mode
+node scripts/download-covers.js --all    # Download all without prompting
+node scripts/download-covers.js --check  # Report only (no downloads)
 ```
 
 This downloads external cover images to `books/covers/` and adds a `coverLocal` field to each book's JSON. Local covers take precedence over external URLs.
@@ -116,7 +112,7 @@ If a cover image fails to load, a placeholder with the book title is shown autom
 ### Moving Books Between Shelves
 
 ```bash
-node add-book.js --move
+node scripts/add-book.js --move
 ```
 
 Lists all books and lets you move them between shelves interactively.
@@ -124,14 +120,16 @@ Lists all books and lets you move them between shelves interactively.
 ## Project Structure
 
 ```
-reccommended-books/
+javiers-recommended-books/
 ├── index.html              # Source HTML (with placeholders)
 ├── styles-minimalist.css   # Source CSS
 ├── app.js                  # Source JS
 ├── config.json             # Site configuration (titles, labels)
-├── build-index.js          # Build script
-├── add-book.js             # Interactive CLI to add/move books
-├── download-covers.js      # Download covers for offline use
+├── favicon.svg             # Book-shaped favicon
+├── scripts/                # CLI tools
+│   ├── build-index.js      # Build script
+│   ├── add-book.js         # Interactive CLI to add/move books
+│   └── download-covers.js  # Download covers for offline use
 ├── books/                  # Your real book data
 │   ├── covers/             # Downloaded cover images (optional)
 │   ├── top-5-reads/
@@ -141,6 +139,7 @@ reccommended-books/
     ├── index.html
     ├── styles-minimalist.css
     ├── app.js
+    ├── favicon.svg
     ├── config.json
     └── books/
         ├── covers/
@@ -153,7 +152,7 @@ reccommended-books/
 Build first, then deploy the `dist/` folder:
 
 ```bash
-node build-index.js  # Build with your real data
+node scripts/build-index.js
 ```
 
 Works with any static hosting:
@@ -182,7 +181,7 @@ Edit `config.json` to customize titles and labels:
 }
 ```
 
-Then rebuild with `node build-index.js`.
+Then rebuild with `node scripts/build-index.js`.
 
 ### Colors
 

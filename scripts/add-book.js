@@ -1,9 +1,19 @@
 #!/usr/bin/env node
 
+/**
+ * Interactive CLI to add and move books
+ *
+ * Usage:
+ *   node scripts/add-book.js          # Add a new book (with Open Library lookup)
+ *   node scripts/add-book.js --move   # Move existing book between shelves
+ */
+
 const readline = require('readline');
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+
+const ROOT_DIR = path.join(__dirname, '..');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -196,7 +206,7 @@ async function lookupBook(query) {
 // ============================================
 
 function listAllBooks() {
-  const booksDir = path.join(__dirname, 'books');
+  const booksDir = path.join(ROOT_DIR, 'books');
   const books = [];
 
   for (const [shelfKey, shelfDir] of Object.entries(SHELF_DIRS)) {
@@ -229,7 +239,7 @@ function listAllBooks() {
 
 function moveBook(fromPath, toShelf) {
   const filename = path.basename(fromPath);
-  const toDir = path.join(__dirname, 'books', SHELF_DIRS[toShelf]);
+  const toDir = path.join(ROOT_DIR, 'books', SHELF_DIRS[toShelf]);
   const toPath = path.join(toDir, filename);
 
   // Ensure destination directory exists
@@ -430,7 +440,7 @@ async function addBookFlow() {
 
   const filename = `${toKebabCase(title)}.json`;
   const shelfDir = SHELF_DIRS[shelf];
-  const filePath = path.join(__dirname, 'books', shelfDir, filename);
+  const filePath = path.join(ROOT_DIR, 'books', shelfDir, filename);
 
   // Ensure directory exists
   const dir = path.dirname(filePath);
