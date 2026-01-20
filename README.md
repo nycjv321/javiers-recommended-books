@@ -1,5 +1,7 @@
 # Javier's Recommended Books
 
+[![Built with Claude](https://img.shields.io/badge/Built%20with-Claude-blueviolet)](https://claude.ai)
+
 A minimalist static website to showcase book recommendations. No backend required - just HTML, CSS, and JavaScript.
 
 ## Features
