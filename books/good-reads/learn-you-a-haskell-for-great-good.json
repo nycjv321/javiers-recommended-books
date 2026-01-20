@@ -1,0 +1,11 @@
+{
+  "title": "Learn you a Haskell for great good!",
+  "author": "Miran Lipovaca",
+  "category": "Programming",
+  "publishDate": "2011-01-01",
+  "pages": 1,
+  "cover": "https://covers.openlibrary.org/b/id/10620792-L.jpg",
+  "link": "https://openlibrary.org/isbn/9781593272951",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/learn-you-a-haskell-for-great-good.jpg"
+}

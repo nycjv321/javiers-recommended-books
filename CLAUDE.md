@@ -18,8 +18,9 @@ This is a static book recommendation website built with HTML, CSS, and JavaScrip
 | `app.js` | Source JS - book loading, rendering, modal logic |
 | `config.json` | Site configuration (titles, labels) |
 | `build-index.js` | Build script - generates dist/ folder |
+| `add-book.js` | Interactive CLI to add/move books with Open Library lookup |
+| `download-covers.js` | Download external cover images for offline use |
 | `books/` | Your real book data (source) |
-| `books-sample/` | Sample book data for testing/demos |
 | `dist/` | Built output (gitignored) - serve this folder |
 
 ## Architecture
@@ -50,11 +51,7 @@ App.js fetches config.json at runtime for shelf labels.
 ### Folder Structure
 ```
 books/                           # Real user data (source)
-├── top-5-reads/*.json
-├── good-reads/*.json
-└── current-and-future-reads/*.json
-
-books-sample/                    # Sample data for testing/demos
+├── covers/                      # Downloaded cover images (optional)
 ├── top-5-reads/*.json
 ├── good-reads/*.json
 └── current-and-future-reads/*.json
@@ -65,13 +62,20 @@ dist/                            # Built output (gitignored)
 ├── app.js
 ├── config.json
 └── books/
+    ├── covers/                  # Copied from source if exists
     ├── index.json               # Auto-generated
     └── [book JSON files]
 ```
 
 ## Common Tasks
 
-### Add a new book
+### Add a new book (interactive)
+```bash
+node add-book.js                 # Search Open Library or enter manually
+node add-book.js --move          # Move existing book between shelves
+```
+
+### Add a new book (manual)
 1. Create JSON file in appropriate `books/` subfolder
 2. Run `node build-index.js` to rebuild
 
@@ -85,7 +89,17 @@ The build script:
 - Cleans and creates `dist/` folder
 - Copies HTML, CSS, JS to `dist/`
 - Copies book JSON files to `dist/books/`
+- Copies cover images to `dist/books/covers/` (if exists)
 - Generates `dist/books/index.json`
+
+### Download covers for offline use
+```bash
+node download-covers.js          # Interactive mode
+node download-covers.js --all    # Download all without prompting
+node download-covers.js --check  # Report only (no downloads)
+```
+
+Downloads external cover images and adds `coverLocal` field to book JSON.
 
 ### Change site text or shelf names
 Edit `config.json` and rebuild
@@ -113,6 +127,7 @@ cd dist && python -m http.server 8080
 - **Show More for Good Reads**: Handles large collections without overwhelming the page
 - **Separate source and output**: `books/` for source data, `dist/` for built output
 - **Cover image fallback**: SVG placeholder with book title shown if cover fails to load
+- **Local cover support**: `coverLocal` field in book JSON for offline covers (takes precedence over `cover` URL)
 
 ## Things to Avoid
 

@@ -1,0 +1,11 @@
+{
+  "title": "Effective Java",
+  "author": "Joshua Bloch",
+  "category": "Programming",
+  "publishDate": "2008-01-01",
+  "pages": 1,
+  "cover": "https://covers.openlibrary.org/b/olid/OL34787536M-L.jpg",
+  "link": "https://openlibrary.org/works/OL25783599W",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/effective-java.jpg"
+}

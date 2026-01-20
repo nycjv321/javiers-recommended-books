@@ -1,0 +1,11 @@
+{
+  "title": "The Mikado Method",
+  "author": "Ola Ellnestam",
+  "category": "Programming",
+  "publishDate": "2014-01-01",
+  "pages": 240,
+  "cover": "https://covers.openlibrary.org/b/id/8507817-L.jpg",
+  "link": "https://openlibrary.org/isbn/9781617291210",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/the-mikado-method.jpg"
+}

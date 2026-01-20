@@ -1,0 +1,11 @@
+{
+  "title": "The Go Programming Language",
+  "author": "Alan A. A. Donovan & Brian W. Kernighan",
+  "category": "Programming",
+  "publishDate": "2016-01-01",
+  "pages": 380,
+  "cover": "https://covers.openlibrary.org/b/id/7427319-L.jpg",
+  "link": "https://openlibrary.org/isbn/9780134190440",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/the-go-programming-language.jpg"
+}

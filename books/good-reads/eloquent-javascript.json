@@ -1,0 +1,11 @@
+{
+  "title": "Eloquent JavaScript",
+  "author": "Marijn Haverbeke",
+  "category": "Programming",
+  "publishDate": "2011-01-15",
+  "pages": 224,
+  "cover": "https://covers.openlibrary.org/b/isbn/9781593272821-L.jpg",
+  "link": "https://openlibrary.org/works/OL15444205W",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/eloquent-javascript.jpg"
+}

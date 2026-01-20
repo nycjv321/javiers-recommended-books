@@ -1,0 +1,11 @@
+{
+  "title": "Kanban in Action",
+  "author": "Marcus Hammarberg",
+  "category": "Programming",
+  "publishDate": "2014-01-01",
+  "pages": 360,
+  "cover": "https://covers.openlibrary.org/b/id/8514391-L.jpg",
+  "link": "https://openlibrary.org/isbn/9781617291050",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/kanban-in-action.jpg"
+}

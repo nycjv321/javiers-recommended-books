@@ -1,0 +1,11 @@
+{
+  "title": "The RSpec book",
+  "author": "David Chelimsky",
+  "category": "Programming",
+  "publishDate": "2010-01-01",
+  "pages": 420,
+  "cover": "https://covers.openlibrary.org/b/id/9565183-L.jpg",
+  "link": "https://openlibrary.org/isbn/9781934356371",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/the-rspec-book.jpg"
+}

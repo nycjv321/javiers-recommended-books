@@ -132,6 +132,21 @@ function buildBooks() {
     const indexPath = path.join(distBooksDir, 'index.json');
     fs.writeFileSync(indexPath, JSON.stringify(bookFiles, null, 4) + '\n');
 
+    // Copy covers folder if it exists
+    const coversDir = path.join(SOURCE_DIR, 'covers');
+    if (fs.existsSync(coversDir)) {
+        const destCoversDir = path.join(distBooksDir, 'covers');
+        ensureDir(destCoversDir);
+        const coverFiles = fs.readdirSync(coversDir).filter(f => !f.startsWith('.'));
+        for (const file of coverFiles) {
+            copyFile(
+                path.join(coversDir, file),
+                path.join(destCoversDir, file)
+            );
+        }
+        console.log(`Copied ${coverFiles.length} cover images`);
+    }
+
     return bookFiles;
 }
 

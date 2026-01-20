@@ -1,0 +1,11 @@
+{
+  "title": "The Ruby Programming Language",
+  "author": "David Flanagan, Yukihiro Matsumoto",
+  "category": "Programming",
+  "publishDate": "2008-01-25",
+  "pages": 448,
+  "cover": "https://covers.openlibrary.org/b/isbn/9780596516178-L.jpg",
+  "link": "https://openlibrary.org/works/OL16933740W",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/the-ruby-programming-language.jpg"
+}

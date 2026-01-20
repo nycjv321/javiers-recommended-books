@@ -1,0 +1,11 @@
+{
+  "title": "Functional Programming, Simplified",
+  "author": "Alvin Alexander",
+  "category": "Programming",
+  "publishDate": "2017-01-01",
+  "pages": 728,
+  "cover": "https://covers.openlibrary.org/b/id/10539139-L.jpg",
+  "link": "https://openlibrary.org/isbn/9781979788786",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/functional-programming-simplified.jpg"
+}

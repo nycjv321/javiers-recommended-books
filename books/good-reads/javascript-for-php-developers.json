@@ -1,0 +1,11 @@
+{
+  "title": "JavaScript for PHP Developers",
+  "author": "Stoyan Stefanov",
+  "category": "Programming",
+  "publishDate": "2013-05-10",
+  "pages": 140,
+  "cover": "https://covers.openlibrary.org/b/isbn/9781449320195-L.jpg",
+  "link": "https://openlibrary.org/works/OL17356629W",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/javascript-for-php-developers.jpg"
+}

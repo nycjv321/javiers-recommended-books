@@ -1,0 +1,11 @@
+{
+  "title": "Taming Text",
+  "author": "Thomas S. Morton",
+  "category": "Programming",
+  "publishDate": "2012-01-01",
+  "pages": 1,
+  "cover": "https://covers.openlibrary.org/b/id/14433276-L.jpg",
+  "link": "https://openlibrary.org/isbn/9781933988382",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/taming-text.jpg"
+}

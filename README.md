@@ -30,6 +30,13 @@ Then open http://localhost:8080
 
 ### 2. Add a book
 
+**Option A: Interactive CLI (recommended)**
+```bash
+node add-book.js                 # Search Open Library or enter manually
+```
+
+**Option B: Manual JSON file**
+
 Create a JSON file in the appropriate shelf folder:
 
 ```
@@ -83,6 +90,7 @@ The build script:
 | `publishDate` | string | No | ISO date (YYYY-MM-DD) |
 | `pages` | number | No | Page count |
 | `cover` | string | Yes | URL to cover image |
+| `coverLocal` | string | No | Local path to downloaded cover (e.g., `covers/my-book.jpg`) |
 | `notes` | string | No | Your personal notes |
 | `link` | string | No | External URL (Amazon, publisher, etc.) |
 | `clickBehavior` | string | No | `"overlay"` (default) or `"redirect"` |
@@ -94,7 +102,24 @@ You can use Open Library for free cover images:
 https://covers.openlibrary.org/b/isbn/{ISBN}-L.jpg
 ```
 
+**Download covers for offline use:**
+```bash
+node download-covers.js          # Interactive mode
+node download-covers.js --all    # Download all without prompting
+node download-covers.js --check  # Report only (no downloads)
+```
+
+This downloads external cover images to `books/covers/` and adds a `coverLocal` field to each book's JSON. Local covers take precedence over external URLs.
+
 If a cover image fails to load, a placeholder with the book title is shown automatically.
+
+### Moving Books Between Shelves
+
+```bash
+node add-book.js --move
+```
+
+Lists all books and lets you move them between shelves interactively.
 
 ## Project Structure
 
@@ -105,11 +130,10 @@ reccommended-books/
 ├── app.js                  # Source JS
 ├── config.json             # Site configuration (titles, labels)
 ├── build-index.js          # Build script
+├── add-book.js             # Interactive CLI to add/move books
+├── download-covers.js      # Download covers for offline use
 ├── books/                  # Your real book data
-│   ├── top-5-reads/
-│   ├── good-reads/
-│   └── current-and-future-reads/
-├── books-sample/           # Sample data for testing/demo
+│   ├── covers/             # Downloaded cover images (optional)
 │   ├── top-5-reads/
 │   ├── good-reads/
 │   └── current-and-future-reads/
@@ -119,6 +143,7 @@ reccommended-books/
     ├── app.js
     ├── config.json
     └── books/
+        ├── covers/
         ├── index.json
         └── [book files]
 ```

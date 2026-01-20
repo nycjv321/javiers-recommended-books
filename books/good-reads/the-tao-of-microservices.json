@@ -1,0 +1,11 @@
+{
+  "title": "The Tao of Microservices",
+  "author": "Richard Rodger",
+  "category": "Programming",
+  "publishDate": "2017-01-01",
+  "pages": 1,
+  "cover": "https://covers.openlibrary.org/b/olid/OL27388746M-L.jpg",
+  "link": "https://openlibrary.org/works/OL20201490W",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/the-tao-of-microservices.jpg"
+}

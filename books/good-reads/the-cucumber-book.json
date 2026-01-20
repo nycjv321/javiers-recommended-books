@@ -1,0 +1,11 @@
+{
+  "title": "The cucumber book",
+  "author": "Matt Wynne",
+  "category": "Programming, Testing",
+  "publishDate": "2012-01-01",
+  "pages": 313,
+  "cover": "https://covers.openlibrary.org/b/id/8634363-L.jpg",
+  "link": "https://openlibrary.org/isbn/9781934356807",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/the-cucumber-book.jpg"
+}

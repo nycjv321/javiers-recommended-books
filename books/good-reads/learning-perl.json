@@ -1,0 +1,11 @@
+{
+  "title": "Learning Perl (6th Edition)",
+  "author": "Randal L. Schwartz, brian d foy, Tom Phoenix",
+  "category": "Programming",
+  "publishDate": "2011-06-30",
+  "pages": 390,
+  "cover": "https://covers.openlibrary.org/b/isbn/9781449303587-L.jpg",
+  "link": "https://openlibrary.org/works/OL1958829W",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/learning-perl-6th-edition.jpg"
+}
