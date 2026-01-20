@@ -165,10 +165,34 @@ This repo includes a GitHub Actions workflow that automatically deploys to S3 on
 | `S3_BUCKET_NAME` | Your S3 bucket name |
 
 **Setup:**
-1. Create an S3 bucket with static website hosting enabled
-2. Create an IAM user with S3 write permissions
-3. Add the secrets to your GitHub repo (Settings > Secrets > Actions)
-4. Push to `main` - the workflow runs automatically
+
+1. **Create an S3 bucket** with static website hosting enabled
+
+2. **Create an IAM user** with the following policy (replace `YOUR-BUCKET-NAME`):
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [{
+       "Effect": "Allow",
+       "Action": [
+         "s3:PutObject",
+         "s3:DeleteObject",
+         "s3:ListBucket"
+       ],
+       "Resource": [
+         "arn:aws:s3:::YOUR-BUCKET-NAME",
+         "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+       ]
+     }]
+   }
+   ```
+
+3. **Add GitHub Secrets** to your repository:
+   - Go to your repo on GitHub
+   - Navigate to Settings → Secrets and variables → Actions
+   - Click "New repository secret" for each secret listed above
+
+4. **Push to `main`** - the workflow runs automatically
 
 ### Manual
 
