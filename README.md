@@ -151,6 +151,27 @@ javiers-recommended-books/
 
 ## Deployment
 
+### Automatic (GitHub Actions + S3)
+
+This repo includes a GitHub Actions workflow that automatically deploys to S3 on push to `main`.
+
+**Required GitHub Secrets:**
+
+| Secret | Description |
+|--------|-------------|
+| `AWS_ACCESS_KEY_ID` | IAM user access key |
+| `AWS_SECRET_ACCESS_KEY` | IAM user secret key |
+| `AWS_REGION` | AWS region (e.g., `us-east-1`) |
+| `S3_BUCKET_NAME` | Your S3 bucket name |
+
+**Setup:**
+1. Create an S3 bucket with static website hosting enabled
+2. Create an IAM user with S3 write permissions
+3. Add the secrets to your GitHub repo (Settings > Secrets > Actions)
+4. Push to `main` - the workflow runs automatically
+
+### Manual
+
 Build first, then deploy the `dist/` folder:
 
 ```bash
@@ -159,10 +180,10 @@ node scripts/build-index.js
 
 Works with any static hosting:
 
+- **S3**: `aws s3 sync dist/ s3://your-bucket --delete`
 - **GitHub Pages**: Deploy the `dist/` folder
 - **Netlify**: Drag and drop `dist/`
 - **Vercel**: Set build output to `dist/`
-- **Any web server**: Serve the `dist/` folder
 
 ## Customization
 
