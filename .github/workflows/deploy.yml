@@ -41,7 +41,6 @@ jobs:
 
           # HTML and config with shorter cache for faster updates
           aws s3 sync packages/site/dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
-            --delete \
             --cache-control "max-age=3600" \
             --include "*.html" \
             --include "config.json" \
