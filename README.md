@@ -2,27 +2,23 @@
 
 [![Built with Claude](https://img.shields.io/badge/Built%20with-Claude-blueviolet)](https://claude.ai)
 
-A minimalist static website to showcase book recommendations, with an Electron desktop app for management.
+A minimalist static website to showcase book recommendations.
 
 ## Features
 
-**Website**: Clean design, customizable shelves, dark mode, responsive layout, book detail overlays
+Clean design, customizable shelves, dark mode, responsive layout, book detail overlays.
 
-**Admin App**: Desktop app with Open Library search, drag-and-drop shelves, built-in preview server
+Management is handled via a separate Electron admin app with Open Library search, drag-and-drop shelves, and built-in preview server.
 
 ## Quick Start
 
 ```bash
-# Install dependencies
-npm install
+# Build the site
+node scripts/build-index.js
 
-# Start the admin app
-npm run dev
+# Preview locally
+npx serve dist
 ```
-
-On first launch, select `packages/site` as your site folder. The admin app will use this folder for templates, book data, and build output.
-
-Use the admin app to add books, organize shelves, build, and preview your site.
 
 For detailed workflow and deployment instructions, see **[docs/workflow.md](docs/workflow.md)**.
 
@@ -30,12 +26,18 @@ For detailed workflow and deployment instructions, see **[docs/workflow.md](docs
 
 ```
 recommended-books/
-├── packages/
-│   ├── admin/          # Electron admin app (React + TypeScript)
-│   └── site/           # Static website (vanilla JS)
-│       ├── books/      # Your book data (JSON files)
-│       ├── config.json # Site configuration
-│       └── dist/       # Build output (deploy this)
+├── index.html          # Site template
+├── app.js              # Book loading and rendering
+├── styles-minimalist.css
+├── config.json         # Site configuration
+├── books/              # Your book data (JSON files)
+│   ├── covers/         # Cover images
+│   ├── top/            # Top reads
+│   ├── good/           # Good reads
+│   └── current-and-future-reads/
+├── scripts/
+│   └── build-index.js  # Build script
+├── dist/               # Build output (deploy this)
 └── docs/               # Documentation
 ```
 
@@ -49,7 +51,7 @@ recommended-books/
 | `publishDate` | string | No | ISO date (YYYY-MM-DD) |
 | `pages` | number | No | Page count |
 | `cover` | string | No | URL to cover image |
-| `coverLocal` | string | No | Local path (e.g., `books/covers/my-book.jpg`) |
+| `coverLocal` | string | No | Local path (e.g., `covers/my-book.jpg`) |
 | `notes` | string | No | Your personal notes |
 | `link` | string | No | External URL |
 | `clickBehavior` | string | No | `"overlay"` (default) or `"redirect"` |
@@ -58,7 +60,7 @@ recommended-books/
 
 ### Site Text
 
-Edit in the admin app's Site Config page, or directly in `packages/site/config.json`:
+Edit `config.json`:
 
 ```json
 {
@@ -66,14 +68,14 @@ Edit in the admin app's Site Config page, or directly in `packages/site/config.j
   "siteSubtitle": "Books that shaped my career",
   "footerText": "Books I love and books to explore",
   "shelves": [
-    { "id": "top5", "label": "Top 5 Reads", "folder": "top-5-reads" }
+    { "id": "top", "label": "Top Reads", "folder": "top" }
   ]
 }
 ```
 
 ### Colors
 
-Edit CSS variables in `packages/site/styles-minimalist.css`:
+Edit CSS variables in `styles-minimalist.css`:
 
 ```css
 :root {
@@ -85,13 +87,15 @@ Edit CSS variables in `packages/site/styles-minimalist.css`:
 
 ## Deployment
 
-Build and deploy the `packages/site/dist/` folder to any static hosting (GitHub Pages, Netlify, S3, etc.).
+Build and deploy the `dist/` folder to any static hosting (GitHub Pages, Netlify, S3, etc.).
 
 ```bash
-npm run build:site
+node scripts/build-index.js
 ```
 
-See **[docs/workflow.md](docs/workflow.md)** for detailed deployment options including GitHub Actions.
+Push to main branch to trigger automatic deployment to S3 via GitHub Actions.
+
+See **[docs/workflow.md](docs/workflow.md)** for detailed deployment options.
 
 ## License
 

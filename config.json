@@ -1,0 +1,22 @@
+{
+  "siteTitle": "My Reads",
+  "siteSubtitle": "inspiring my professional journey",
+  "footerText": "Ad Astra Per Aspera",
+  "shelves": [
+    {
+      "id": "top",
+      "label": "Top 10",
+      "folder": "top"
+    },
+    {
+      "id": "current-and-future-reads",
+      "label": "Current and Future Reads",
+      "folder": "current-and-future-reads"
+    },
+    {
+      "id": "good",
+      "label": "Good Reads",
+      "folder": "good"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Elm in Action",
+  "author": "Richard Feldman",
+  "category": "Other",
+  "publishDate": "2019-01-01",
+  "cover": "https://covers.openlibrary.org/b/id/14583131-L.jpg",
+  "link": "https://openlibrary.org/works/OL21639891W",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/elm-in-action.jpg"
+}
