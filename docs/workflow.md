@@ -178,16 +178,7 @@ Manual:
 aws s3 sync packages/site/dist/ s3://your-bucket --delete
 ```
 
-Automatic (GitHub Actions):
-
-The repo includes `.github/workflows/deploy.yml`. Configure these secrets:
-
-| Secret | Description |
-|--------|-------------|
-| `AWS_ACCESS_KEY_ID` | IAM user access key |
-| `AWS_SECRET_ACCESS_KEY` | IAM user secret key |
-| `AWS_REGION` | e.g., `us-east-1` |
-| `S3_BUCKET_NAME` | Your bucket name |
+Automatic (GitHub Actions)
 
 ## FAQ
 
