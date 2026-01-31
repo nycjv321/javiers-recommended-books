@@ -23,7 +23,7 @@ jobs:
           node-version: "20"
 
       - name: Build site
-        run: node scripts/build-index.js
+        run: node packages/site/scripts/build-index.js
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -33,14 +33,14 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
+          aws s3 sync packages/site/dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
             --delete \
             --cache-control "max-age=86400" \
             --exclude "*.html" \
             --exclude "config.json"
 
           # HTML and config with shorter cache for faster updates
-          aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
+          aws s3 sync packages/site/dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
             --delete \
             --cache-control "max-age=3600" \
             --include "*.html" \
