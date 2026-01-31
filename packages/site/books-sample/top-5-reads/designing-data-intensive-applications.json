@@ -1,0 +1,12 @@
+{
+    "title": "Designing Data-Intensive Applications",
+    "author": "Martin Kleppmann",
+    "shelf": "top5",
+    "category": "Software Architecture",
+    "publishDate": "2017-03-16",
+    "pages": 616,
+    "cover": "https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg",
+    "notes": "The definitive guide to building reliable, scalable, and maintainable systems. Every backend engineer should read this cover to cover.",
+    "link": "https://dataintensive.net/",
+    "clickBehavior": "overlay"
+}

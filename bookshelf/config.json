@@ -1,0 +1,27 @@
+{
+  "siteTitle": "My Reads",
+  "siteSubtitle": "Personal book recommendations",
+  "footerText": "",
+  "shelves": [
+    {
+      "id": "top5",
+      "label": "Top 5 Reads",
+      "folder": "top-5-reads"
+    },
+    {
+      "id": "good",
+      "label": "Good Reads",
+      "folder": "good-reads"
+    },
+    {
+      "id": "current",
+      "label": "Current Reads",
+      "folder": "current-reads"
+    },
+    {
+      "id": "future",
+      "label": "Future Reads",
+      "folder": "future-reads"
+    }
+  ]
+}

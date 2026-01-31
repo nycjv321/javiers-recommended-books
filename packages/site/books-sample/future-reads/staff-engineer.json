@@ -1,0 +1,11 @@
+{
+    "title": "Staff Engineer",
+    "author": "Will Larson",
+    "category": "Career",
+    "publishDate": "2021-03-13",
+    "pages": 387,
+    "cover": "https://covers.openlibrary.org/b/isbn/9781736417911-L.jpg",
+    "notes": "Essential reading for senior engineers navigating the path beyond senior IC roles. Great insights on technical leadership without going into management.",
+    "link": "https://staffeng.com/book",
+    "clickBehavior": "overlay"
+}
