@@ -9,14 +9,14 @@
       "folder": "top"
     },
     {
-      "id": "Good Reads",
-      "label": "good",
-      "folder": "good"
+      "id": "current-and-future-reads",
+      "label": "Current and Future Reads",
+      "folder": "current-and-future-reads"
     },
     {
-      "id": "Current and Future Reads",
-      "label": "current-and-future-reads",
-      "folder": "current and -future -reads"
+      "id": "good",
+      "label": "Good Reads",
+      "folder": "good"
     }
   ]
 }
