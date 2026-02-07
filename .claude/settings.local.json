@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(gh repo fork:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:openlibrary.org)",
+      "Bash(chmod:*)",
+      "Bash(node build-index.js:*)",
+      "Bash(node --check:*)",
+      "Bash(node download-covers.js:*)",
+      "Bash(ls:*)",
+      "Bash(git commit:*)",
+      "Bash(git mv:*)",
+      "Bash(node scripts/build-index.js:*)",
+      "Bash(node scripts/download-covers.js:*)",
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)"
+    ]
+  }
+}

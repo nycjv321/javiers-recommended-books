@@ -1,0 +1,10 @@
+{
+  "title": "The Phoenix Project",
+  "author": "Gene Kim",
+  "category": "Other",
+  "publishDate": "2013-01-01",
+  "cover": "https://covers.openlibrary.org/b/id/9151976-L.jpg",
+  "link": "https://openlibrary.org/works/OL16806686W",
+  "clickBehavior": "overlay",
+  "coverLocal": "covers/the-phoenix-project.jpg"
+}
